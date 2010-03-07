@@ -1,0 +1,15 @@
++++++++++++   GROUP 1   +++++++++++++
+
+Using ActionMailer with AuthLogic
+
++++++++++++++++++++++++++++++++++++++
+
+1) Download the project using git
+
+2) Open in Net Beans IDE
+
+3) Create the database using rake db create
+
+4) Test.
+--------------------------------------
+
