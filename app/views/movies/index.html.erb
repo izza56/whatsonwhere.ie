@@ -1,0 +1,42 @@
+<h1>Listing movies</h1>
+
+
+<% form_for @search do |f| %>
+<p>
+  <%= f.label :name_like, "Name" %> <br />
+  <%= f.text_field :name_like %>
+</p>
+<%= f.label :duration_gte, "Duration" %>
+<%= f.text_field :duration_gte, :size => 8%> - <%= f.text_field :duration_lte, :size => 8%>
+<p>
+
+</p>
+
+<%= f.submit "Submit" %>
+<%end%>
+
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Duration</th>
+    <th>Genre</th>
+  </tr>
+
+<% @movies.each do |movie| %>
+  <tr>
+    <td><%=h movie.id %></td>
+    <td><%=h movie.name %></td>
+    <td><%=h movie.duration %></td>
+    <td><%=h movie.genre %></td>
+    <td><%= link_to 'Show', movie %></td>
+    <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
+    <td><%= link_to 'Destroy', movie, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New movie', new_movie_path %>
