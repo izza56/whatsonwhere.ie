@@ -21,7 +21,7 @@ development:
   database: WhatsOnWhereIe_development
   pool: 5
   username: root
-  password: password
+  password: b33nbawn
   host: localhost
  
 # Warning: The database defined as "test" will be erased and
@@ -34,7 +34,7 @@ test:
   database: WhatsOnWhereIe_test
   pool: 5
   username: administrator
-  password: password
+  password: b33nbawn
   host: localhost
  
 production:
@@ -44,5 +44,5 @@ production:
   database: WhatsOnWhereIe_production
   pool: 5
   username: administrator
-  password: password
+  password: b33nbawn
   host: localhost
