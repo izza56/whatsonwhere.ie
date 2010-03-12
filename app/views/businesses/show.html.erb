@@ -1,0 +1,38 @@
+<p>
+  <b>Name:</b>
+  <%=h @business.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @business.address %>
+</p>
+
+<p>
+  <b>Province:</b>
+  <%=h @business.province %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%=h @business.city %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%=h @business.country %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%=h @business.longitude %>
+</p>
+
+<p>
+  <b>Lattitude:</b>
+  <%=h @business.lattitude %>
+</p>
+
+
+<%= link_to 'Edit', edit_business_path(@business) %> |
+<%= link_to 'Back', businesses_path %>

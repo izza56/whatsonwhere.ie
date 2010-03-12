@@ -1,7 +1,18 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :movies
+
+  map.resources :genres
+
+  map.resources :categories
+
+  map.resources :event_instances
+
+  map.resources :age_limits
+
+  map.resources :businesses
 
   map.resources :users
+  
+  map.resources :movies
 
   # The priority is based upon order of creation: first created -> highest priority.
 
