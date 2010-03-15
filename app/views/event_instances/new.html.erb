@@ -12,14 +12,21 @@
     <%= f.datetime_select :end %>
   </p>
 
-    <p>
-    <%= f.label :age_limit_id, "Age Category" %>
-    <%= f.collection_select :age_limit_id, AgeLimit.all, :id, :name %>
-  </p>
   <p>
     <%= f.label :notes %><br />
     <%= f.text_field :notes %>
   </p>
+
+  <p>
+    <%= f.label :age_limit_id, "Age Category" %>
+    <%= f.collection_select :age_limit_id, AgeLimit.all, :id, :name, :include_blank => true %>
+  </p>
+
+      <p>
+    <%= f.label :genre_name, "Genre" %>
+    <%= f.collection_select :genre_name, Genre.all, :id, :name, :include_blank => true %>
+  </p>
+
   <p>
     <%= f.label :ticketPrice %><br />
     <%= f.text_field :ticketPrice %>

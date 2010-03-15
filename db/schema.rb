@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20100312034423) do
     t.integer  "ticketPrice",  :limit => 10, :precision => 10, :scale => 0
     t.integer  "doorPrice",    :limit => 10, :precision => 10, :scale => 0
     t.integer  "age_limit_id"
+    t.string   "genre_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
