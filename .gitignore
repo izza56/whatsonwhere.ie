@@ -3,4 +3,5 @@ nbproject
 Thumbs.db
 Desktop.ini
 config/environment.rb
+config/database.yml
 log
