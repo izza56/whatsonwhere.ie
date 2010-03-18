@@ -1,0 +1,23 @@
+<p>
+  <b>Id:</b>
+  <%=h @movie.id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @movie.name %>
+</p>
+
+<p>
+  <b>Duration:</b>
+  <%=h @movie.duration %>
+</p>
+
+<p>
+  <b>Genre:</b>
+  <%=h @movie.genre %>
+</p>
+
+
+<%= link_to 'Edit', edit_movie_path(@movie) %> |
+<%= link_to 'Back', movies_path %>

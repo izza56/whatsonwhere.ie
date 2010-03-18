@@ -40,14 +40,24 @@ ActiveRecord::Schema.define(:version => 20100312034423) do
     t.datetime "start"
     t.datetime "end"
     t.string   "notes"
-    t.integer  "ticketPrice", :limit => 10, :precision => 10, :scale => 0
-    t.integer  "doorPrice",   :limit => 10, :precision => 10, :scale => 0
+    t.integer  "ticketPrice",  :limit => 10, :precision => 10, :scale => 0
+    t.integer  "doorPrice",    :limit => 10, :precision => 10, :scale => 0
+    t.integer  "age_limit_id"
+    t.string   "genre_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "genres", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "movies", :force => true do |t|
+    t.string   "name"
+    t.integer  "duration"
+    t.string   "genre"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

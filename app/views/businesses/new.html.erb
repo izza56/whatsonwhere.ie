@@ -3,6 +3,7 @@
 
 <% form_for(@business) do |f| %>
   <%= f.error_messages %>
+
 <%= render :partial => "newform", :object => f %>
     <%= f.submit 'Create' %>
 <% end %>

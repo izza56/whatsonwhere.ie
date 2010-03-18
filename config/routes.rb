@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+
   map.resources :genres
 
   map.resources :categories
@@ -11,6 +12,8 @@ ActionController::Routing::Routes.draw do |map|
 
 
   map.resources :users
+  
+  map.resources :movies
 
   # The priority is based upon order of creation: first created -> highest priority.
 
