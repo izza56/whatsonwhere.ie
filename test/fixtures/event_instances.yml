@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  start: 2010-03-12 03:43:11
+  end: 2010-03-12 03:43:11
+  notes: MyString
+  ticketPrice: 9.99
+  doorPrice: 9.99
+  hasDoorSales: 
+
+two:
+  start: 2010-03-12 03:43:11
+  end: 2010-03-12 03:43:11
+  notes: MyString
+  ticketPrice: 9.99
+  doorPrice: 9.99
+  hasDoorSales: 

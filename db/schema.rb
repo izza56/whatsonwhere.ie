@@ -9,7 +9,58 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100226104223) do
+ActiveRecord::Schema.define(:version => 20100312034423) do
+
+  create_table "age_limits", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "businesses", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "address"
+    t.string   "province"
+    t.string   "city"
+    t.string   "country"
+    t.float    "longitude"
+    t.float    "lattitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "event_instances", :force => true do |t|
+    t.datetime "start"
+    t.datetime "end"
+    t.string   "notes"
+    t.integer  "ticketPrice",  :limit => 10, :precision => 10, :scale => 0
+    t.integer  "doorPrice",    :limit => 10, :precision => 10, :scale => 0
+    t.integer  "age_limit_id"
+    t.string   "genre_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "genres", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "movies", :force => true do |t|
+    t.string   "name"
+    t.integer  "duration"
+    t.string   "genre"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "login"
