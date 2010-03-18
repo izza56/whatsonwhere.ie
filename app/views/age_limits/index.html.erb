@@ -1,0 +1,20 @@
+<h1>Listing age_limits</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+<% @age_limits.each do |age_limit| %>
+  <tr>
+    <td><%=h age_limit.name %></td>
+    <td><%= link_to 'Show', age_limit %></td>
+    <td><%= link_to 'Edit', edit_age_limit_path(age_limit) %></td>
+    <td><%= link_to 'Destroy', age_limit, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New age_limit', new_age_limit_path %>

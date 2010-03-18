@@ -33,7 +33,7 @@ test:
   reconnect: false
   database: WhatsOnWhereIe_test
   pool: 5
-  username: administrator
+  username: root
   password: b33nbawn
   host: localhost
  
@@ -43,6 +43,6 @@ production:
   reconnect: false
   database: WhatsOnWhereIe_production
   pool: 5
-  username: administrator
+  username: root
   password: b33nbawn
   host: localhost
