@@ -12,8 +12,8 @@
 </p>
 
 <p>
-  <%= f.label :genre_name_equals, "Genre"%>
-  <%= f.collection_select :genre_name_equals, Genre.all, :id, :name, :include_blank => true %>
+  <%= f.label :genre_id_equals, "Genre"%>
+  <%= f.collection_select :genre_id_equals, Genre.all, :id, :name, :include_blank => true %>
 </p>
 
 <p>
@@ -42,8 +42,8 @@
     <td><%=h event_instance.start %></td>
     <td><%=h event_instance.end %></td>
     <td><%=h event_instance.notes %></td>
-    <td><%=h event_instance.age_limit_id %></td>
-    <td><%=h event_instance.genre_name %></td>
+    <td><%=h event_instance.age_limit.name %></td>
+    <td><%=h event_instance.genre.name %></td>
     <td><%=h event_instance.ticketPrice %></td>
     <td><%=h event_instance.doorPrice %></td>
     <td><%= link_to 'Show', event_instance %></td>
