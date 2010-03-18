@@ -3,10 +3,6 @@
   <%=h @user.login %>
 </p>
 
-<p>
-  <b>Login count:</b>
-  <%=h @user.login_count %>
-</p>
 
 <p>
   <b>Last request at:</b>
@@ -35,3 +31,5 @@
 
 
 <%= link_to 'Edit', edit_account_path %>
+
+<%= link_to 'Add your business', :controller=>"businesses", :action=>"new"%>

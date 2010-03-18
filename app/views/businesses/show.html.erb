@@ -33,6 +33,10 @@
   <%=h @business.lattitude %>
 </p>
 
+<p>
+  <b>Business Owner:</b>
+  <%=h @business.user.login%>
+</p>
 
 <%= link_to 'Edit', edit_business_path(@business) %> |
 <%= link_to 'Back', businesses_path %>
