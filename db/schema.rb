@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100312034423) do
+ActiveRecord::Schema.define(:version => 20100318212125) do
 
   create_table "age_limits", :force => true do |t|
     t.string   "name"
@@ -42,10 +42,10 @@ ActiveRecord::Schema.define(:version => 20100312034423) do
     t.string   "notes"
     t.integer  "ticketPrice",  :limit => 10, :precision => 10, :scale => 0
     t.integer  "doorPrice",    :limit => 10, :precision => 10, :scale => 0
-    t.integer  "age_limit_id"
-    t.string   "genre_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "age_limit_id"
+    t.integer  "genre_id"
   end
 
   create_table "genres", :force => true do |t|
