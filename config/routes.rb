@@ -1,8 +1,19 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :movies
+  map.resources :genres
+
+  map.resources :categories
+
+  map.resources :event_instances
+
+  map.resources :age_limits
+
+  map.resources :businesses
 
   map.resources :users
 
+  map.resources :posts
+  
+  map.resources :posts, :member => {:rate => :post}
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -35,7 +46,7 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  # map.root :controller => "welcome"
+  # map.content :controller => "posts"
 
   # See how all your routes lay out with "rake routes"
 
