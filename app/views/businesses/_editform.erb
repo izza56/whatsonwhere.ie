@@ -1,0 +1,47 @@
+
+    <%= editform.label :name %><br />
+    <%= editform.text_field :name %>
+    <br />
+    <br />
+
+
+    <%= editform.label :address %><br />
+    <%= editform.text_field :address %>
+    <br />
+    <br />
+
+
+    <%= editform.label :province %><br />
+    <%= editform.text_field :province %>
+    <br />
+    <br />
+
+
+    <%= editform.label :city %><br />
+    <%= editform.text_field :city %>
+    <br />
+    <br />
+
+
+    <%= editform.label :country %><br />
+    <%= editform.text_field :country %>
+    <br />
+    <br />
+
+    <%= editform.label :longitude %><br />
+    <%= editform.text_field :longitude %>
+    <br />
+    <br />
+
+    <%= editform.label :lattitude %><br />
+    <%= editform.text_field :lattitude %>
+    <br />
+    <br />
+
+
+     Business Owner <br />
+
+ <!-- GF 14/2/10 added select box below to allow selection of business owner when editing business -->
+<%=select('business', 'user_id',User.find(:all).collect{|usr| [usr.login, usr.id]})%>
+<br />
+

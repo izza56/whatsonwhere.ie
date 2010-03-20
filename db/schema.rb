@@ -9,7 +9,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20100316224935) do
+=======
+ActiveRecord::Schema.define(:version => 20100318212125) do
+>>>>>>> 9969a3d6964c79fbb67cbad780a18d568b1b51c0
 
   create_table "age_limits", :force => true do |t|
     t.string   "name"
@@ -40,10 +44,19 @@ ActiveRecord::Schema.define(:version => 20100316224935) do
     t.datetime "start"
     t.datetime "end"
     t.string   "notes"
+<<<<<<< HEAD
     t.integer  "ticketPrice", :limit => 10, :precision => 10, :scale => 0
     t.integer  "doorPrice",   :limit => 10, :precision => 10, :scale => 0
     t.datetime "created_at"
     t.datetime "updated_at"
+=======
+    t.integer  "ticketPrice",  :limit => 10, :precision => 10, :scale => 0
+    t.integer  "doorPrice",    :limit => 10, :precision => 10, :scale => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "age_limit_id"
+    t.integer  "genre_id"
+>>>>>>> 9969a3d6964c79fbb67cbad780a18d568b1b51c0
   end
 
   create_table "genres", :force => true do |t|

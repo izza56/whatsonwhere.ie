@@ -1,13 +1,49 @@
 <h1>Listing event_instances</h1>
 
+<<<<<<< HEAD
+=======
+<% form_for @search do |f| %>
+<p>
+  <%= f.label :start_gte, "Start Time Between" %>
+  <%= f.text_field :start_gte, :size =>15  %> and <%= f.text_field :start_lte, :size =>15  %>
+</p>
+
+<p>
+  <%= f.label :age_limit_id_equals, "Age Category"%>
+  <%= f.collection_select :age_limit_id_equals, AgeLimit.all, :id, :name, :include_blank => true %>
+</p>
+
+<p>
+  <%= f.label :genre_id_equals, "Genre"%>
+  <%= f.collection_select :genre_id_equals, Genre.all, :id, :name, :include_blank => true %>
+</p>
+
+<p>
+  <%= f.label :notes_like, "Event Name" %> <br />
+  <%= f.text_field :notes_like %>
+</p>
+
+<%= f.submit "Search" %>
+<%end%>
+
+>>>>>>> 9969a3d6964c79fbb67cbad780a18d568b1b51c0
 <table>
   <tr>
     <th>Start</th>
     <th>End</th>
     <th>Notes</th>
+<<<<<<< HEAD
     <th>Ticketprice</th>
     <th>Doorprice</th>
     <th>Hasdoorsales</th>
+=======
+    <th>Rating</th>
+    <th>Genre</th>
+    <th>Ticketprice</th>
+    <th>Doorprice</th>
+    
+    
+>>>>>>> 9969a3d6964c79fbb67cbad780a18d568b1b51c0
   </tr>
 
 <% @event_instances.each do |event_instance| %>
@@ -15,9 +51,16 @@
     <td><%=h event_instance.start %></td>
     <td><%=h event_instance.end %></td>
     <td><%=h event_instance.notes %></td>
+<<<<<<< HEAD
     <td><%=h event_instance.ticketPrice %></td>
     <td><%=h event_instance.doorPrice %></td>
     <td><%=h event_instance.hasDoorSales %></td>
+=======
+    <td><%=h event_instance.age_limit.name %></td>
+    <td><%=h event_instance.genre.name %></td>
+    <td><%=h event_instance.ticketPrice %></td>
+    <td><%=h event_instance.doorPrice %></td>
+>>>>>>> 9969a3d6964c79fbb67cbad780a18d568b1b51c0
     <td><%= link_to 'Show', event_instance %></td>
     <td><%= link_to 'Edit', edit_event_instance_path(event_instance) %></td>
     <td><%= link_to 'Destroy', event_instance, :confirm => 'Are you sure?', :method => :delete %></td>

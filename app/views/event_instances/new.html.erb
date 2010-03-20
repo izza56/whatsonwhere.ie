@@ -11,10 +11,28 @@
     <%= f.label :end %><br />
     <%= f.datetime_select :end %>
   </p>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9969a3d6964c79fbb67cbad780a18d568b1b51c0
   <p>
     <%= f.label :notes %><br />
     <%= f.text_field :notes %>
   </p>
+<<<<<<< HEAD
+=======
+
+  <p>
+    <%= f.label :age_limit_id, "Age Category" %>
+    <%= f.collection_select :age_limit_id, AgeLimit.all, :id, :name, :include_blank => true %>
+  </p>
+
+      <p>
+    <%= f.label :genre_name, "Genre" %>
+    <%= f.collection_select :genre_name, Genre.all, :id, :name, :include_blank => true %>
+  </p>
+
+>>>>>>> 9969a3d6964c79fbb67cbad780a18d568b1b51c0
   <p>
     <%= f.label :ticketPrice %><br />
     <%= f.text_field :ticketPrice %>
@@ -23,10 +41,14 @@
     <%= f.label :doorPrice %><br />
     <%= f.text_field :doorPrice %>
   </p>
+<<<<<<< HEAD
   <p>
     <%= f.label :hasDoorSales %><br />
     <%= f.text_field :hasDoorSales %>
   </p>
+=======
+
+>>>>>>> 9969a3d6964c79fbb67cbad780a18d568b1b51c0
   <p>
     <%= f.submit 'Create' %>
   </p>
