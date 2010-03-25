@@ -9,14 +9,14 @@
     <th>Country</th>
     <th>Longitude</th>
     <th>Lattitude</th>
-<<<<<<< HEAD
+
   </tr>
 
-=======
+
     <th>Business Owner</th>
-  </tr>
+
 <!-- GF 14/3/10: Edited the TD data below business.user_id deleted and business.user.login added to show user name not id -->
->>>>>>> 9969a3d6964c79fbb67cbad780a18d568b1b51c0
+
 <% @businesses.each do |business| %>
   <tr>
     <td><%=h business.name %></td>
@@ -26,10 +26,10 @@
     <td><%=h business.country %></td>
     <td><%=h business.longitude %></td>
     <td><%=h business.lattitude %></td>
-<<<<<<< HEAD
-=======
+
+
     <td><%=h business.user.login %></td>
->>>>>>> 9969a3d6964c79fbb67cbad780a18d568b1b51c0
+
     <td><%= link_to 'Show', business %></td>
     <td><%= link_to 'Edit', edit_business_path(business) %></td>
     <td><%= link_to 'Destroy', business, :confirm => 'Are you sure?', :method => :delete %></td>

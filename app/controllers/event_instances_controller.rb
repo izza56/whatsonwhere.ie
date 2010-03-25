@@ -2,15 +2,15 @@ class EventInstancesController < ApplicationController
   # GET /event_instances
   # GET /event_instances.xml
   def index
-<<<<<<< HEAD
+
     @event_instances = EventInstance.all
-=======
+
     
     @search = EventInstance.search(params[:search])
     @event_instances = @search.all
 
     #@event_instances = EventInstance.all
->>>>>>> 9969a3d6964c79fbb67cbad780a18d568b1b51c0
+
 
     respond_to do |format|
       format.html # index.html.erb

@@ -2,7 +2,7 @@
 
 <% form_for(@business) do |f| %>
   <%= f.error_messages %>
-<<<<<<< HEAD
+
 
   <p>
     <%= f.label :name %><br />
@@ -32,10 +32,8 @@
     <%= f.label :lattitude %><br />
     <%= f.text_field :lattitude %>
   </p>
-=======
 <%= render :partial => "editform", :object => f %>
   
->>>>>>> 9969a3d6964c79fbb67cbad780a18d568b1b51c0
   <p>
     <%= f.submit 'Update' %>
   </p>

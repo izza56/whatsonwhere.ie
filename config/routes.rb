@@ -1,8 +1,5 @@
-ActionController::Routing::Routes.draw do |map|
-<<<<<<< HEAD
-=======
+  ActionController::Routing::Routes.draw do |map|
 
->>>>>>> 9969a3d6964c79fbb67cbad780a18d568b1b51c0
   map.resources :genres
 
   map.resources :categories
@@ -12,10 +9,6 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :age_limits
 
   map.resources :businesses
-<<<<<<< HEAD
-=======
-
->>>>>>> 9969a3d6964c79fbb67cbad780a18d568b1b51c0
 
   map.resources :users
   
@@ -72,6 +65,8 @@ ActionController::Routing::Routes.draw do |map|
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
   # consider removing or commenting them out if you're using named routes and resources.
+  
+
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 end

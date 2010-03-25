@@ -9,11 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20100316224935) do
-=======
-ActiveRecord::Schema.define(:version => 20100318212125) do
->>>>>>> 9969a3d6964c79fbb67cbad780a18d568b1b51c0
 
   create_table "age_limits", :force => true do |t|
     t.string   "name"
@@ -44,19 +40,12 @@ ActiveRecord::Schema.define(:version => 20100318212125) do
     t.datetime "start"
     t.datetime "end"
     t.string   "notes"
-<<<<<<< HEAD
-    t.integer  "ticketPrice", :limit => 10, :precision => 10, :scale => 0
-    t.integer  "doorPrice",   :limit => 10, :precision => 10, :scale => 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
-=======
     t.integer  "ticketPrice",  :limit => 10, :precision => 10, :scale => 0
     t.integer  "doorPrice",    :limit => 10, :precision => 10, :scale => 0
+    t.integer  "genre_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "age_limit_id"
-    t.integer  "genre_id"
->>>>>>> 9969a3d6964c79fbb67cbad780a18d568b1b51c0
   end
 
   create_table "genres", :force => true do |t|
@@ -111,11 +100,8 @@ ActiveRecord::Schema.define(:version => 20100318212125) do
     t.string   "current_login_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "perishable_token",  :default => "", :null => false
-    t.string   "email",             :default => "", :null => false
+    t.string   "perishable_token",  :null => false
+    t.string   "email",             :null => false
   end
-
-  add_index "users", ["email"], :name => "index_users_on_email"
-  add_index "users", ["perishable_token"], :name => "index_users_on_perishable_token"
 
 end

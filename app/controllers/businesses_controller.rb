@@ -3,10 +3,7 @@ class BusinessesController < ApplicationController
   # GET /businesses.xml
   def index
     @businesses = Business.all
-<<<<<<< HEAD
 
-=======
->>>>>>> 9969a3d6964c79fbb67cbad780a18d568b1b51c0
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @businesses }
@@ -17,10 +14,7 @@ class BusinessesController < ApplicationController
   # GET /businesses/1.xml
   def show
     @business = Business.find(params[:id])
-<<<<<<< HEAD
 
-=======
->>>>>>> 9969a3d6964c79fbb67cbad780a18d568b1b51c0
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @business }
@@ -30,14 +24,13 @@ class BusinessesController < ApplicationController
   # GET /businesses/new
   # GET /businesses/new.xml
   def new
-<<<<<<< HEAD
+
     @business = Business.new
 
-=======
 # GF 14/2/10: Changed line below to store business owner for relationship between users table and businesses table
     @business = Business.new(:user_id =>current_user.id)
    
->>>>>>> 9969a3d6964c79fbb67cbad780a18d568b1b51c0
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @business }
@@ -52,14 +45,14 @@ class BusinessesController < ApplicationController
   # POST /businesses
   # POST /businesses.xml
   def create
-<<<<<<< HEAD
+
     @business = Business.new(params[:business])
 
-=======
+
     
     @business = Business.new(params[:business ])
     
->>>>>>> 9969a3d6964c79fbb67cbad780a18d568b1b51c0
+
     respond_to do |format|
       if @business.save
         flash[:notice] = 'Business was successfully created.'
