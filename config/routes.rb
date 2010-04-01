@@ -15,6 +15,9 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :movies
 
+  map.resources :posts
+
+  map.resources :posts, :member => {:rate => :post}
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_one :business
-
+  ajaxful_rateable :dimensions => [:quality], :allow_update => true
+  ajaxful_rater
 
   acts_as_authentic
 
