@@ -6,6 +6,8 @@ class CreateEventInstances < ActiveRecord::Migration
       t.string :notes
       t.decimal :ticketPrice
       t.decimal :doorPrice
+      t.integer :genre_id
+      t.bool :hasDoorSales
       t.timestamps
     end
   end

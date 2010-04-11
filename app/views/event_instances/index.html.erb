@@ -30,12 +30,13 @@
     <th>Start</th>
     <th>End</th>
     <th>Notes</th>
+    <th>Ticketprice</th>
+    <th>Doorprice</th>
+    <th>Hasdoorsales</th>
     <th>Rating</th>
     <th>Genre</th>
     <th>Ticketprice</th>
     <th>Doorprice</th>
-    
-    
   </tr>
 
 <% @event_instances.each do |event_instance| %>
@@ -43,7 +44,9 @@
     <td><%=h event_instance.start %></td>
     <td><%=h event_instance.end %></td>
     <td><%=h event_instance.notes %></td>
-    <td><%=h event_instance.age_limit.name %></td>
+    <td><%=h event_instance.ticketPrice %></td>
+    <td><%=h event_instance.doorPrice %></td>
+    <td><%=h event_instance.age_limit.id %></td>
     <td><%=h event_instance.genre.name %></td>
     <td><%=h event_instance.ticketPrice %></td>
     <td><%=h event_instance.doorPrice %></td>

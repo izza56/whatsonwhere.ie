@@ -42,10 +42,10 @@ ActiveRecord::Schema.define(:version => 20100408192719) do
     t.string   "notes"
     t.integer  "ticketPrice",  :limit => 10, :precision => 10, :scale => 0
     t.integer  "doorPrice",    :limit => 10, :precision => 10, :scale => 0
+    t.integer  "genre_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "age_limit_id"
-    t.integer  "genre_id"
   end
 
   create_table "genres", :force => true do |t|
@@ -63,6 +63,31 @@ ActiveRecord::Schema.define(:version => 20100408192719) do
     t.datetime "updated_at"
   end
 
+  create_table "posts", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "message"
+  end
+
+  create_table "rates", :force => true do |t|
+    t.integer  "rater_id"
+    t.integer  "rateable_id"
+    t.string   "rateable_type"
+    t.integer  "stars",         :null => false
+    t.string   "dimension"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rates", ["rateable_id", "rateable_type"], :name => "index_rates_on_rateable_id_and_rateable_type"
+  add_index "rates", ["rater_id"], :name => "index_rates_on_rater_id"
+
+  create_table "reviews", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "login"
     t.string   "crypted_password"
@@ -76,11 +101,8 @@ ActiveRecord::Schema.define(:version => 20100408192719) do
     t.string   "current_login_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "perishable_token",  :default => "", :null => false
-    t.string   "email",             :default => "", :null => false
+    t.string   "perishable_token",  :null => false
+    t.string   "email",             :null => false
   end
-
-  add_index "users", ["email"], :name => "index_users_on_email"
-  add_index "users", ["perishable_token"], :name => "index_users_on_perishable_token"
 
 end

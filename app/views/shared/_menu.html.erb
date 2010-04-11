@@ -1,0 +1,44 @@
+<div id="menu">
+<ul>
+      <li> <%= link_to_remote( "new user",
+               :update => "content",
+               :url =>{ :controller => "users", :action => "new" }) %>
+      </li>
+       <li> <%= link_to_remote( "Businesses",
+               :update => "content",
+               :url =>{ :controller => "businesses", :action => "index" }) %>
+      </li>
+      <li> <%= link_to_remote( "Categories",
+               :update => "content",
+               :url =>{ :controller => "categories", :action => "index" }) %>
+      </li>
+      <li> <%= link_to_remote( "Emailer",
+               :update => "content",
+               :url =>{ :controller => "emailer", :action => "index" }) %>
+      </li>
+       <li> <%= link_to_remote( "Event Instances",
+               :update => "content",
+               :url =>{ :controller => "event_instances", :action => "new" }) %>
+      </li>
+        <li> <%= link_to_remote( "Genres",
+               :update => "content",
+               :url =>{ :controller => "genres", :action => "index" }) %>
+      </li>
+       <li> <%= link_to_remote( "Reset Password",
+               :update => "content",
+               :url =>{ :controller => "password_resets", :action => "index" }) %>
+      </li>
+       <li>  <%= link_to_remote( "Post Comments",
+             :update => "content",
+             :url =>{ :controller => "posts" }) %>
+      </li>
+      <li>  <%= link_to_remote( "Sign out",
+             :update => "content",
+             :url =>{ :controller => "user_sessions", :action => "destroy" }) %>
+      </li>
+       <li>  <%= link_to_remote( "Sign in",
+             :update => "content",
+             :url =>{ :controller => "user_sessions", :action => "create" }) %>
+      </li>
+    </ul>
+</div>
