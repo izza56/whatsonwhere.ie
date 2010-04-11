@@ -10,10 +10,9 @@
   <%= f.label :age_limit_id_equals, "Age Category"%>
   <%= f.collection_select :age_limit_id_equals, AgeLimit.all, :id, :name, :include_blank => true %>
 </p>
-
 <p>
   <%= f.label :genre_id_equals, "Genre"%>
-  <%= f.collection_select :genre_id_equals, Genre.all, :id, :name, :include_blank => true %>
+  <%= f.collection_select :genre_id_equals, Genre.find_all_by_category_id(@category_id), :id, :name, :include_blank => true %>
 </p>
 
 <p>
@@ -21,6 +20,8 @@
   <%= f.text_field :notes_like %>
 </p>
 
+<p>Category ID:<%= @category_id %></p>
+<input type="hidden" name="category_id" value="<%= @category_id %>">
 <%= f.submit "Search" %>
 <%end%>
 

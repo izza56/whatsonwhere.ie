@@ -2,8 +2,11 @@ class EventInstancesController < ApplicationController
   # GET /event_instances
   # GET /event_instances.xml
   def index
-    
+
+    # @search_params = params[:search]
+    # @search_params.delete :category_id
     @search = EventInstance.search(params[:search])
+    @category_id = params[:category_id]
     @event_instances = @search.all
 
     #@event_instances = EventInstance.all
