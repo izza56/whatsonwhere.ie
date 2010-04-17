@@ -1,0 +1,11 @@
+
+
+<% form_for @post do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.hidden_field :event_instances_id, :value => @event_instance.id %>
+    <%= f.label :message %><br />
+   <%= f.text_area :message %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>
