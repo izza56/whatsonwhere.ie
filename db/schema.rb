@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100329121452) do
+ActiveRecord::Schema.define(:version => 20100412154800) do
 
   create_table "age_limits", :force => true do |t|
     t.string   "name"
@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(:version => 20100329121452) do
     t.datetime "updated_at"
   end
 
+  add_index "event_instances", ["id"], :name => "index_event_instances_on_id"
+
   create_table "genres", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -69,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20100329121452) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "message"
+    t.integer  "event_instances_id"
   end
 
   create_table "rates", :force => true do |t|

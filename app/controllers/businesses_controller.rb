@@ -13,6 +13,8 @@ class BusinessesController < ApplicationController
   # GET /businesses/1.xml
   def show
     @business = Business.find(params[:id])
+    @map_params = { :address => @business.address, :city => @business.city }
+ 
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @business }

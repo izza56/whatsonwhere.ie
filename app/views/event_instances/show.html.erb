@@ -23,8 +23,19 @@
   <%=h @event_instance.doorPrice %>
 </p>
 
+<p>
+ Global Avg: <%= ratings_for @event_instance, :dimension => :quality %>
+</p>
+<p>
 
+</p>
+<p>
 
+  
+ <%= render :partial => 'comment_form' %>
+Rating: <%= ratings_for @event_instance, :force_static => true, :dimension => :quality, :small => false, :show_user_rating => false %>
 
+</p>
+  <%= render :partial => 'show_comments' %>
 <%= link_to 'Edit', edit_event_instance_path(@event_instance) %> |
 <%= link_to 'Back', event_instances_path %>
