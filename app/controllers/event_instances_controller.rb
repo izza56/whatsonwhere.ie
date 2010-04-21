@@ -2,28 +2,30 @@ class EventInstancesController < ApplicationController
   # GET /event_instances
   # GET /event_instances.xml
   def index
-
-    
     @search = EventInstance.search(params[:search])
     @category_id = params[:category_id]
-
-    if @category_id.nil?
-      @genres_collection = Genre.all()
+    if @category_id == "" || @category_id.nil?
+      @category_id = Category.first.id
     else
       begin
-        # If the category_id is a number then we can filter the genres by it
-        @genres_collection = Genre.find_all_by_category_id(Integer(@category_id))
+        @category_id = Integer(@category_id)
       rescue
-        # If it's not an integer then we will clear it
-        @category_id = nil
-        @genres_collection = Genre.all()
+        @category_id = Category.first.id
       end
     end
+
+
+    begin
+      @genre_id = Integer(params[:search][:genre_id_equals])
+    rescue
+      @genre_id = 0
+    end
+
+    @genres_collection = Genre.find_all_by_category_id(@category_id)
 
     @event_instances = @search.all
 
     #@event_instances = EventInstance.all
-
 
     respond_to do |format|
       format.html # index.html.erb
@@ -98,16 +100,16 @@ class EventInstancesController < ApplicationController
     if params[:id].nil?
       # Must be for search screen get settings from params
       category_id = params[:category_id]
+      if category_id == "" then category_id = nil end
     else
       # Specific event_instance so get settings from self
       category_id = EventInstance.find(params[:id]).category_id
     end
-    args[:name] = params[:name] || "genre_id"
+    args[:name] = "genre_id" #params[:name] || "genre_id"
     if category_id.nil?
-      args[:collection] = Genre.all
-    else
-      args[:collection] = Genre.find_all_by_category_id(category_id)
+      category_id = Category.first.id
     end
+    args[:collection] = Genre.find_all_by_category_id(category_id)
     render :partial => "shared/dropdown", :locals => args
   end
 

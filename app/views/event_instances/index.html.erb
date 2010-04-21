@@ -15,8 +15,14 @@
   <%
     if @category_id.nil?
       concat f.label :category_id_equals, "Category"
-      concat f.collection_select :category_id_equals, Category.all, :id, :name, :include_blank => true
-
+      concat render :partial => "shared/dropdown",
+        :locals => {
+          :name => "search[category_id_equals]",
+          :collection => Category.all
+        }
+      concat observe_field "search_category_id_equals", :url => { :action => :genre_dropdown },
+        :update => :genre_dropdown,
+        :with => 'category_id'
     else
       concat "Category is :" + Category.find(@category_id).name
       concat hidden_field_tag :category_id, @category_id
@@ -28,9 +34,9 @@
 <p>
   <%= f.label :genre_id_equals, "Genre"%>
   <div id="genre_dropdown">
-      <%# if !@category_id.nil? %>
-        <%= f.collection_select :genre_id_equals, @genres_collection, :id, :name, :include_blank => true %>
-      <%# end %>
+    <%=render :partial => "shared/dropdown", 
+        :locals => {:name => "search[genre_id_equals]", :collection => @genres_collection,
+          :include_blank => true, :selected => @genre_id } %>
   </div>
 </p>
 
@@ -49,11 +55,8 @@
     <th>Notes</th>
     <th>Ticketprice</th>
     <th>Doorprice</th>
-    <th>Hasdoorsales</th>
-    <th>Rating</th>
+    <th>Age Limit</th>
     <th>Genre</th>
-    <th>Ticketprice</th>
-    <th>Doorprice</th>
   </tr>
 
 <% @event_instances.each do |event_instance| %>

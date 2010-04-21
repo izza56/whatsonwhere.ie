@@ -1,16 +1,21 @@
-<%
+<%=
 # This ia so we can use the same partial from a controller and views - Jack
 # must pass in name & collection,
 # optional:
 #   selected = the value to select
 #   value_method  defaults to :id
 #   text_method  defaults to :name
-#   options 
-select_tag name,
-  options_from_collection_for_select(
+#   options
+options_list = options_from_collection_for_select(
     collection,
     (defined?(value_method)==nil) ? :id : value_method,
-    (defined?(text_method)==nil) ? :id : text_method,
-    (defined?(selected)==nil) ? nil : selected),
-  (defined?(options)==nil) ? nil : options
+    (defined?(text_method)==nil) ? :name : text_method,
+    (defined?(selected)==nil) ? nil : selected
+  )
+if ((defined?(include_blank)==nil) ? false : include_blank == true)
+  options_list = "<option value=''>&nbsp;</option>" + options_list
+end
+select_tag name,
+  options_list,
+  ((defined?(options)==nil) ? {} : options)
 %>
