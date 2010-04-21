@@ -1,6 +1,7 @@
 class EventInstance < ActiveRecord::Base
 
-  belongs_to :age_limit
-  belongs_to :genre
+  has_one :age_limit
+  has_one :genre
+  has_one :category
 
 end

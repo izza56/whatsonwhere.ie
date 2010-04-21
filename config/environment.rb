@@ -29,6 +29,7 @@ Rails::Initializer.run do |config|
   # config.frameworks -= [ :active_record, :active_resource, :action_mailer ]
 
   config.gem "authlogic"
+  config.gem "searchlogic"
 
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
@@ -54,7 +55,7 @@ ActionMailer::Base.smtp_settings = {
    :port =>"587",
    :domain => "gmail.com",
    :authentication => :plain,
-   :user_name => "<<higginsc2008@gmail.com>>",
-   :password => "<<b33nbawn>>",
+   :user_name => "<<user name>>",
+   :password => "<<password>>",
 }
 

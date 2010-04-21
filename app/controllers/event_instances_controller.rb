@@ -6,6 +6,20 @@ class EventInstancesController < ApplicationController
     
     @search = EventInstance.search(params[:search])
     @category_id = params[:category_id]
+
+    if @category_id.nil?
+      @genres_collection = Genre.all()
+    else
+      begin
+        # If the category_id is a number then we can filter the genres by it
+        @genres_collection = Genre.find_all_by_category_id(Integer(@category_id))
+      rescue
+        # If it's not an integer then we will clear it
+        @category_id = nil
+        @genres_collection = Genre.all()
+      end
+    end
+
     @event_instances = @search.all
 
     #@event_instances = EventInstance.all
@@ -76,6 +90,25 @@ class EventInstancesController < ApplicationController
         format.xml  { render :xml => @event_instance.errors, :status => :unprocessable_entity }
       end
     end
+  end
+
+  def genre_dropdown
+    # renders a genre selection dropdown for use with ajax
+    args={}
+    if params[:id].nil?
+      # Must be for search screen get settings from params
+      category_id = params[:category_id]
+    else
+      # Specific event_instance so get settings from self
+      category_id = EventInstance.find(params[:id]).category_id
+    end
+    args[:name] = params[:name] || "genre_id"
+    if category_id.nil?
+      args[:collection] = Genre.all
+    else
+      args[:collection] = Genre.find_all_by_category_id(category_id)
+    end
+    render :partial => "shared/dropdown", :locals => args
   end
 
   # DELETE /event_instances/1
