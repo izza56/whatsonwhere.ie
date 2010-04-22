@@ -15,18 +15,12 @@
 
   <div id="content">
     <div id="header">
-      Whats on where
+       <%=yield :header %>
   </div>
   <div id="menu">
-    <%=render :partial => "shared/menu"%>
+    <%=  yield :menu %>
   </div>
-    <div id="right_column">
-
-      login
-
-      search
-
-    </div>
+    
     <div id="main">
        <%=yield %>
 

@@ -18,6 +18,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :posts
 
+  map.resources :menu
+
   map.resources :chat_two
 
   map.resources :event_instances, :member => {:rate => :post}
@@ -53,7 +55,8 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  map.root :controller => "posts"
+  map.resource :user_session
+  map.root :controller => "user_sessions", :action => "new"
 
   # See how all your routes lay out with "rake routes"
 
@@ -62,8 +65,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :account, :controller => "users"
   map.resources :users
 
-  map.resource :user_session
-  map.root :controller => "user_sessions", :action => "new"
+  
   
   # optional, this just sets the root route
   # Install the default routes as the lowest priority.
