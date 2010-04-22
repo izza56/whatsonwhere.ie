@@ -24,9 +24,6 @@ class BusinessesController < ApplicationController
   # GET /businesses/new
   # GET /businesses/new.xml
   def new
-
-    @business = Business.new
-
 # GF 14/2/10: Changed line below to store business owner for relationship between users table and businesses table
     @business = Business.new(:user_id =>current_user.id)
    
@@ -47,10 +44,6 @@ class BusinessesController < ApplicationController
   def create
 
     @business = Business.new(params[:business])
-
-
-    
-    @business = Business.new(params[:business ])
     
 
     respond_to do |format|

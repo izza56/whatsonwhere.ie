@@ -2,6 +2,7 @@ class EventInstancesController < ApplicationController
   # GET /event_instances
   # GET /event_instances.xml
   def index
+ 
     @search = EventInstance.search(params[:search])
     @category_id = params[:category_id]
     if @category_id == "" || @category_id.nil?
@@ -23,9 +24,6 @@ class EventInstancesController < ApplicationController
 
     @genres_collection = Genre.find_all_by_category_id(@category_id)
 
-    @event_instances = @search.all
-
-    #@event_instances = EventInstance.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -37,7 +35,11 @@ class EventInstancesController < ApplicationController
   # GET /event_instances/1.xml
   def show
     @event_instance = EventInstance.find(params[:id])
-
+    #to render the posts within event_instances
+    @post = Post.new
+    #find all comments for an event
+    @event_id = params[:id]
+    @posts = Post.find(:all, :conditions => [ "event_instances_id = ?", @event_id])
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @event_instance }
@@ -116,12 +118,22 @@ class EventInstancesController < ApplicationController
   # DELETE /event_instances/1
   # DELETE /event_instances/1.xml
   def destroy
+    
     @event_instance = EventInstance.find(params[:id])
     @event_instance.destroy
 
     respond_to do |format|
       format.html { redirect_to(event_instances_url) }
       format.xml  { head :ok }
+    end
+  end
+
+  def rate
+    @event_instance = EventInstance.find(params[:id])
+    @event_instance.rate(params[:stars], current_user, params[:dimension])
+    render :update do |page|
+      page.replace_html @event_instance.wrapper_dom_id(params), ratings_for(@event_instance, params.merge(:wrap => false))
+      page.visual_effect :highlight, @event_instance.wrapper_dom_id(params)
     end
   end
 end

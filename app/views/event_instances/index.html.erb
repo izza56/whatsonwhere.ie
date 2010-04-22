@@ -1,3 +1,9 @@
+<%
+CalendarDateSelect.format = (params[:fmt]||"natural").to_sym
+params[:style]||="red"
+params[:style]=nil if params[:style]=="default"
+%>
+
 <h1>Listing event_instances</h1>
 
 <% form_for @search do |f| %>

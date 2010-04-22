@@ -9,13 +9,20 @@ def index
 
   def new
     @post = Post.new
+    #@event_instance = EventInstance.find(params[:id])
+    #redirect_to @event_instance
   end
 
   def create
     @post = Post.new(params[:post])
+    
     if @post.save
       flash[:notice] = "Successfully created post."
-      redirect_to @post
+      #@event_instance = EventInstance.find("1")
+      @event = params[:post][:event_instances_id]
+      @event_instance = EventInstance.find(@event)
+      
+      redirect_to @event_instance
     else
       render :action => 'new'
     end

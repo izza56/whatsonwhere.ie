@@ -1,11 +1,12 @@
 <h1>New event_instance</h1>
-
 <% form_for(@event_instance) do |f| %>
   <%= f.error_messages %>
 
   <p>
     <%= f.label :start %><br />
     <%= f.datetime_select :start %>
+    <%#= calendar_date_select_tag "disabled_field", "January 20, 2007", :disabled => true %> <br />
+    <%#= f.calendar_date_select :start, :embedded => true %>
   </p>
   <p>
     <%= f.label :end %><br />

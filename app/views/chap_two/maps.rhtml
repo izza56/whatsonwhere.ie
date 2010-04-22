@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>Geocoding</title>
+    <script src="http://maps.google.com/maps?file=api&v=2.x&key=HIER-DER-API-KEY" type="text/javascript"></script>
+    <script type="text/javascript">
+
+    var map = null;
+    var geocoder = null;
+
+    function initialize() {
+      if (GBrowserIsCompatible()) {
+        map = new GMap2(document.getElementById("map_canvas"));
+        map.setCenter(new GLatLng(-6.2648232, 53.3441745), 13  );
+        map.addControl(new GLargeMapControl());
+        map.addControl(new GMapTypeControl());
+        map.addControl(new GScaleControl());
+        map.addControl(new GOverviewMapControl());
+        geocoder = new GClientGeocoder();
+        showAddress("Dame Street Dublin");
+      }
+    }
+
+
+
+    function showAddress(address) {
+      if (geocoder) {
+      
+        geocoder.getLatLng(
+          address,
+          function(point) {
+            if (!point) {
+             
+            } else {
+             /* map.setCenter(point, 13);
+              var marker = new GMarker(point);
+              map.addOverlay(marker);
+              marker.openInfoWindowHtml("<br \/>Longditude: <strong>"+point.lng()+"<\/strong><br \/>Latidude: <strong>"+point.lat()+"<\/strong> <br/>"+address);*/
+
+              GEvent.addListener(map, "click", function(markersetzen, point) {
+                   
+                                geocoder.getLocations(point, addAddressToMap);
+	  			/*map.clearOverlays();
+				marker = new GMarker(point);
+                                map.addOverlay(marker);
+				marker.openInfoWindowHtml("<br \/>Längengrad: <strong>"+point.lng()+"<\/strong><br \/>Breitengrad: <strong>"+point.lat()+"<\/strong>");*/
+			  });
+            }
+          }
+        );
+         geocoder.getLocations(address, addAddressToMap);
+      }
+    }
+
+
+ function addAddressToMap(response) {
+ 
+   map.clearOverlays();
+   if (!response || response.Status.code != 200) {
+     alert("Sorry, we were unable to geocode that address");
+   } else {
+     place = response.Placemark[0];
+     point = new GLatLng(place.Point.coordinates[1],
+     place.Point.coordinates[0]);
+     marker = new GMarker(point);
+     map.addOverlay(marker);
+     marker.openInfoWindowHtml(place.address + '<br>' +
+     '<b>Country code:</b> ' + place.AddressDetails.Country.CountryNameCode);
+   }
+ }
+
+ 
+    </script>
+  </head>
+
+  <body onload="initialize()" onunload="GUnload()" style="font-family:Verdana;font-size:0.8em;">
+    <form action="#" onSubmit="showAddress(this.address.value); return false">
+      <p>
+        <input type="text" size="60" name="address" value="Dame Street, Dublin" />
+        <input type="button" value="Go!" onClick=""/>
+      </p>
+      <div id="map_canvas" style="width: 550px; height: 500px"></div>
+    </form>
+  </body>
+</html>

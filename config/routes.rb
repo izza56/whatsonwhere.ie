@@ -10,13 +10,21 @@
 
   map.resources :businesses
 
+
+  map.resources :maps
+
   map.resources :users
   
   map.resources :movies
 
   map.resources :posts
-  
-  map.resources :posts, :member => {:rate => :post}
+
+  map.resources :menu
+
+  map.resources :chat_two
+
+  map.resources :event_instances, :member => {:rate => :post}
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -49,6 +57,9 @@
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
+  # map.root :controller => "welcome"
+  map.resource :user_session
+  map.root :controller => "user_sessions", :action => "new"
   # map.content :controller => "posts"
 
   # See how all your routes lay out with "rake routes"
@@ -58,8 +69,7 @@
   map.resource :account, :controller => "users"
   map.resources :users
 
-  map.resource :user_session
-  map.root :controller => "user_sessions", :action => "new"
+  
   
   # optional, this just sets the root route
   # Install the default routes as the lowest priority.

@@ -49,5 +49,13 @@ filter_parameter_logging :password, :password_confirmation
       session[:return_to] = nil
     end
 
+    def menu
+     @cats = Category.all
+      respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @cats }
+    end
+   end
+
 
 end
