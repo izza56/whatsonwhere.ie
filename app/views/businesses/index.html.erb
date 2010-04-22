@@ -32,7 +32,12 @@
     <td><%=h business.lattitude %></td>
 
 
-    <td><%=h business.user.login %></td>
+    <td><%
+    # fixed problem where crashes if there is no user associated with business
+        if (!business.user.nil?)
+          concat h business.user.login
+        end
+  %></td>
 
     <td><%= link_to 'Show', business %></td>
     <td><%= link_to 'Edit', edit_business_path(business) %></td>

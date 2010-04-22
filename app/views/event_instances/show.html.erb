@@ -15,23 +15,19 @@
 
 <p>
   <b>Ticketprice:</b>
-  <%=h_euro_b(@event_instance.ticketPrice) %>
+  <%=h_euro_i(@event_instance.ticketPrice) %>
 </p>
 
 <p>
   <b>Doorprice:</b>
-  <%=h_euro_b(@event_instance.doorPrice) %>
+  <%=h_euro_i(@event_instance.doorPrice) %>
 </p>
 
 <p>
  Global Avg: <%= ratings_for @event_instance, :dimension => :quality %>
 </p>
-<p>
 
 <p>
-  <b>Hasdoorsales:</b>
-  <%=h @event_instance.hasDoorSales %>
-</p>
 
   
  <%= render :partial => 'comment_form' %>

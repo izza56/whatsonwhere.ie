@@ -23,6 +23,7 @@ class EventInstancesController < ApplicationController
     end
 
     @genres_collection = Genre.find_all_by_category_id(@category_id)
+    @event_instances = @search.all
 
 
     respond_to do |format|

@@ -17,7 +17,7 @@ INSERT INTO `age_limits` (`id`, `name`, `created_at`, `updated_at`) VALUES
 
 
 INSERT INTO `businesses` (`id`, `user_id`, `name`, `address`, `province`, `city`, `country`, `longitude`, `lattitude`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'Test business', '123 alphabet road', 'dublin', 'dublin', 'ireland', 50, 30, '2010-03-13 16:45:25', '2010-03-13 16:45:25'),
+(1, 1, 'Test business', '123 alphabet road', 'dublin', 'dublin', 'ireland', 50, 30, '2010-03-13 16:45:25', '2010-03-13 16:45:25'),
 (2, 1, 'joebloggs', 'joebloggs', 'adsf', 'adsf', 'adf', 23, 12, '2010-03-13 16:56:49', '2010-03-13 16:56:49'),
 (3, 1, 'mcdonalds', '123 mews', 'dublin', 'dublin', 'ireland', 40, 33, '2010-03-13 17:29:48', '2010-03-13 17:29:48');
 
