@@ -1,0 +1,12 @@
+<li class="first"><a href="index.html">home</a></li>
+<%
+# Render all the categories as menus
+Categories.each do |c|
+  concat "<li"
+  if @category_id == c.id
+    concat " class=""active"""
+  end
+  concat ">" + c.name + "</li>"
+end
+%>
+<li><a href="contact.html">contact us</a></li>

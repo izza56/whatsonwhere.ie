@@ -1,6 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
@@ -32,5 +29,152 @@
 
 
 
+</body>
+</html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>What's on Where</title>
+  <link href="stylesheets/style.css" rel="stylesheet" type="text/css" />
+  <!--<script src="http://maps.google.com/maps?file=api&v=2.x&key=ABQIAAAAkYyE5SoZLVmdAasx_10cXhTJQa0g3IQ9GZqIMmInSLzwtGDKaBSUEOPa_nnTMn8V9vetrASGqc_EFg" type="text/javascript"></script>-->
+  <%= stylesheet_link_tag 'scaffold' %>
+  <%= javascript_include_tag :all %>
+  <%= ajaxful_rating_style %>
+</head>
+
+<body>
+<div class="main">
+	<div class="header"></div>
+	<div class="menu">
+    	<ul class="main-menu">
+          <%= render :partial => "layouts/menu" %>
+        </ul>
+
+    </div>
+	<div class="leftColumn">
+    	<div class="loginBox">
+          <%= render :partial => "layouts/menu" %>
+        	<h3>Login</h3>
+            <label>User ID</label><br />
+            <input name="userID" type="text" class="inputBox"/><br/>
+            <label>Password</label>
+            <input name="userID" type="text" class="inputBox"/><br/>
+            <input type="button" id="login" class="button" value="Login" />
+            <p><a href="#">Forgot your password</a></p>
+            <p class="loginText">Not registered yet?<br />
+         Click <a href="#">here</a> to register</p>
+
+        </div>
+        <div class="searchBox">
+        	<h3>Search for events</h3>
+            <label>Categories</label><br />
+            <select name="Categories" class="inputBox"></select>
+            <label>Date</label>
+            <input name="userID" type="text" class="inputBox"/><br/>
+            <input type="button" id="login" class="button" value="Login" />
+
+
+        </div>
+	</div>
+	<div class="content">
+   	  <div class="heading">
+       	<h3>Movies</h3>
+       </div>
+        <div class="subContent">
+        	<p><label>Title</label><input id="movies" class="inputBox"></select></p>
+            <p><label>Date</label><select id="day" type="text" class="date"/><select id="month" type="text" class="date"/></p>
+            <p><input type="button" id="login" class="go" value="Go" /></p>
+          <h3>List of Movies</h3>
+            <h2>Title</h2>
+            <h2>Venue</h2>
+            <p>Date</p>
+
+            <div class="hr"><hr /></div>
+              <h2>Title</h2>
+             <h2>Venue</h2>
+            <p>Date</p>
+
+            <div class="hr"><hr /></div>
+              <h2>Title</h2>
+             <h2>Venue</h2>
+            <p>Date</p>
+            <div class="hr"><hr /></div>
+              <h2>Title</h2>
+             <h2>Venue</h2>
+            <p>Date</p>
+
+            <div class="hr"><hr /></div>
+              <h2>Title</h2>
+             <h2>Venue</h2>
+            <p>Date</p>
+            <div class="hr"><hr /></div>
+              <h2>Title</h2>
+             <h2>Venue</h2>
+            <p>Date</p>
+
+            <div class="hr"><hr /></div>
+              <h2>Title</h2>
+             <h2>Venue</h2>
+            <p>Date</p>
+            <div class="hr"><hr /></div>
+              <h2>Title</h2>
+             <h2>Venue</h2>
+            <p>Date</p>
+
+            <div class="hr"><hr /></div>
+              <h2>Title</h2>
+             <h2>Venue</h2>
+            <p>Date</p>
+            <div class="hr"><hr /></div>
+              <h2>Title</h2>
+             <h2>Venue</h2>
+            <p>Date</p>
+
+            <div class="hr"><hr /></div>
+              <h2>Title</h2>
+             <h2>Venue</h2>
+            <p>Date</p>
+            <div class="hr"><hr /></div>
+              <h2>Title</h2>
+             <h2>Venue</h2>
+            <p>Date</p>
+
+            <div class="hr"><hr /></div>
+              <h2>Title</h2>
+             <h2>Venue</h2>
+            <p>Date</p>
+            <div class="hr"><hr /></div>
+              <h2>Title</h2>
+             <h2>Venue</h2>
+            <p>Date</p>
+
+            <div class="hr"><hr /></div>
+              <h2>Title</h2>
+             <h2>Venue</h2>
+            <p>Date</p>
+
+           <div class="hr"><hr /></div>
+              <h2>Title</h2>
+             <h2>Venue</h2>
+            Date
+
+        </div>
+        <div class="end">
+        </div>
+
+
+    </div>
+    <div class="clear"></div>
+    <p></p>
+	<div class="footer">
+    	<ul class="bottom-menu">
+        	<li><a href="#"> |  terms & conditions</a></li>
+            <li><a href="#"> |  privacy policy</a></li>
+            <li><a href="#">security</a></li>
+   		</ul>
+    </div>
+
+</div>
 </body>
 </html>
