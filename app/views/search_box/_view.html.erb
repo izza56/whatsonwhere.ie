@@ -1,0 +1,29 @@
+<h3>Search for events</h3>
+<%
+# remember field values from user session if available:
+if !session[:search_box].nil?
+  selected_category_id = Integer(session[:search_box][:category_id_equals])
+  selected_genre_id = Integer(session[:search_box][:genre_id_equals])
+end
+%><%
+
+# write the form
+form_tag :search_box, :method => "get" do -%>
+  <%= label_tag "search_box[category_id_equals]", "Category" %><br />
+  <%= select_tag("search_box[category_id_equals]",
+    "<option value=0></option>" +options_from_collection_for_select(Category.all, :id, :name, selected_category_id),
+    {:prompt => true}) %><br />
+  <%  # Make some ajax to re-render the screen if the category is changed
+  concat observe_field("search_box_category_id_equals",
+    :url => { :controller => :search_box, :action => :view },
+    :update => "search_box",
+    :with => "Form.serialize($('search_box'))")
+  %>
+  <% # only show the Genre dropdown if the category is selected
+    if (selected_category_id != 0) %>
+    <%= label_tag "search_box[genre_id_equals]", "Genre" %><br />
+    <%= select_tag("search_box[genre_id_equals]",
+      options_from_collection_for_select(Genre.find_all_by_category_id(selected_category_id), :id, :name, selected_genre_id)) %>
+  <% end %><br />
+  <%= submit_tag "Search" %>
+<% end %>

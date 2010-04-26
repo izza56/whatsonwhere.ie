@@ -1,29 +1,27 @@
-  ActionController::Routing::Routes.draw do |map|
-
+ActionController::Routing::Routes.draw do |map|
+  map.search_box '/search_box', :controller => 'search_box', :action => 'view'
+  map.search_box '/search_box/search', :controller => 'search_box', :action => 'search'
   map.resources :genres
-
   map.resources :categories
-
-  map.resources :event_instances
-
   map.resources :age_limits
-
   map.resources :businesses
-
-
   map.resources :maps
-
   map.resources :users
-  
   map.resources :movies
-
   map.resources :posts
-
   map.resources :menu
-
   map.resources :chat_two
-
+  map.search '/search', :controller => 'event_instances', :action => 'search'
+  map.resources :event_instances
   map.resources :event_instances, :member => {:rate => :post}
+  map.resource :user_session
+  map.root :controller => "user_sessions", :action => "new"
+  map.resources :password_resets
+  map.resource :account, :controller => "users"
+  map.resources :users
+  map.connect ':controller/:action/:id'
+  map.connect ':controller/:action/:id.:format'
+end
 
   # The priority is based upon order of creation: first created -> highest priority.
 
@@ -58,16 +56,10 @@
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
   # map.root :controller => "welcome"
-  map.resource :user_session
-  map.root :controller => "user_sessions", :action => "new"
   # map.content :controller => "posts"
 
   # See how all your routes lay out with "rake routes"
 
-  map.resources :password_resets
-  
-  map.resource :account, :controller => "users"
-  map.resources :users
 
   
   
@@ -77,6 +69,3 @@
   # consider removing or commenting them out if you're using named routes and resources.
   
 
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
-end

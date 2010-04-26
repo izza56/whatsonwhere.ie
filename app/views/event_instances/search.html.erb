@@ -1,0 +1,43 @@
+<%
+category = Category.find(@category_id)
+%>
+<div class="heading">
+  <h3><%= category.name %></h3>
+</div>
+<div class="subContent">
+<% form_for @search do |f| %>
+<p>
+  <%= f.label :notes_like, "Name" %> <br />
+  <%= f.text_field :notes_like, :class => "inputBox" %>
+</p>
+<p>
+  <%= f.hidden_field :category_id_equals, :value => @category_id %>
+  <%= f.label :genre_id_equals, "Genre" %>
+  <%= f.collection_select :genre_id_equals, Genre.find_all_by_category_id(@category_id), :id, :name,
+    {:include_blank => true, :class => "inputBox"} %>
+</p>
+<p>
+  <%= f.label :start_gte, "Start Time Between" %>
+  <%= f.text_field :start_gte, {:size =>15, :class => "inputBox"} %> and <%= f.text_field :start_lte, {:size => 15, :class => "inputBox"}  %>
+</p>
+<p>
+  <%= f.label :age_limit_id_equals, "Age restriction"%>
+  <%= f.collection_select :age_limit_id_equals, AgeLimit.all, :id, :name, {:include_blank => true, :class => "inputBox"} %>
+</p>
+  <%= f.submit "Search", :class => "go" %>
+<%end%>
+<h3>List of <%= category.name.pluralize.capitalize %></h3>
+
+<% first=true %>
+<% @search.each do |e| %>
+  <% if first
+    first = false
+  else %>
+    <div class="hr"><hr /></div>
+  <% end %>
+  <h2><%= link_to e.name, e %></h2>
+  <p><%=h e.notes %></p>
+<% end %>
+
+  <div class="end">
+</div>

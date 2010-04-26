@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>What's on Where</title>
 <link href="/stylesheets/style.css" rel="stylesheet" type="text/css" />
+<%= javascript_include_tag :defaults %>
 </head>
 
 <body>
@@ -30,13 +31,8 @@
       <p class="loginText">Not registered yet?<br />
         Click <a href="#">here</a> to register</p>
     </div>
-    <div class="searchBox">
-      <h3>Search for events</h3>
-      <label>Categories</label><br />
-      <select name="Categories" class="inputBox"></select>
-      <label>Date</label>
-      <input name="userID" type="text" class="inputBox"/><br/>
-      <input type="button" id="login" class="button" value="Login" />
+    <div id="search_box" class="searchBox">
+      <%= render :partial => "search_box/view" %>
     </div>
   </div>
   <div class="content">

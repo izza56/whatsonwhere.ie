@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100422203856) do
+ActiveRecord::Schema.define(:version => 20100426001301) do
 
   create_table "age_limits", :force => true do |t|
     t.string   "name"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20100422203856) do
     t.integer  "age_limit_id"
     t.integer  "genre_id"
     t.integer  "category_id"
+    t.string   "name"
   end
 
   add_index "event_instances", ["id"], :name => "index_event_instances_on_id"
@@ -88,6 +89,21 @@ ActiveRecord::Schema.define(:version => 20100422203856) do
 
   create_table "reviews", :force => true do |t|
     t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roles", :force => true do |t|
+    t.string   "name",              :limit => 40
+    t.string   "authorizable_type", :limit => 40
+    t.integer  "authorizable_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roles_users", :id => false, :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "role_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

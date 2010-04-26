@@ -2,11 +2,10 @@ class UserSessionsController < ApplicationController
   before_filter :require_no_user, :only => [:new, :create]
   before_filter :require_user, :only => :destroy
   filter_parameter_logging :password, :password_confirmation
-    helper_method :current_user_session, :current_user
+  helper_method :current_user_session, :current_user
 
-def new
+  def new
     @user_session = UserSession.new
-    
   end
 
   def create
@@ -25,17 +24,15 @@ def new
     redirect_back_or_default new_user_session_url
   end
 
-private
+  private
 
   def current_user_session
     return @current_user_session if defined?(@current_user_session)
     @current_user_session = UserSession.find
   end
 
- def current_user
+  def current_user
     return @current_user if defined?(@current_user)
     @current_user = current_user_session && current_user_session.record
   end
-
-
 end
