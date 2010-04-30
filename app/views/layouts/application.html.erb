@@ -21,15 +21,7 @@
   </div>
   <div class="leftColumn">
     <div class="loginBox">
-      <h3>Login</h3>
-      <label>User ID</label><br />
-      <input name="userID" type="text" class="inputBox"/><br/>
-      <label>Password</label>
-      <input name="userID" type="text" class="inputBox"/><br/>
-      <input type="button" id="login" class="button" value="Login" />
-      <p><a href="#">Forgot your password</a></p>
-      <p class="loginText">Not registered yet?<br />
-        Click <a href="#">here</a> to register</p>
+      <%= render :partial => "login_box/view" %>
     </div>
     <div id="search_box" class="searchBox">
       <%= render :partial => "search_box/view" %>

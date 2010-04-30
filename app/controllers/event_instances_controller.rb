@@ -7,40 +7,30 @@ class EventInstancesController < ApplicationController
   # GET /event_instances/search
   # GET /event_instances/search.xml
   def search
-    category_id = params[:category_id]
+    @category_id = params[:category_id]
 
-    if category_id.nil?
+    if @category_id.nil?
       # Either we are receiving criteria from the user or remembering what was stored in the session
-      @search_criteria = params[:search]
-      if @search_criteria.nil?
+      search_criteria = params[:search]
+      if search_criteria.nil?
         # Get defaults saved in the user session
-        @search_criteria = session[:event_instance_search]
+        search_criteria = session[:event_instance_search]
 
-        # if search_criteria is nil then make it into an empty hash
-        @search_criteria ||= {}
+        # if there is nothing in the session then make something up to prevent crash
+        if search_criteria.nil?
+          search_criteria = {:category_id_equals => Category.find(:first).id}
+        end
       else
         # remember what the user selected by storing it in the session object
-        session[:event_instance_search] = @search_criteria
+        session[:event_instance_search] = search_criteria
       end
+      @category_id = search_criteria[:category_id_equals]
     else
-      # Build search_criteria using passed in category_id
-      @search_criteria = {:category_id_equals => category_id}
+      # Build search_criteria using passed in @category_id
+      search_criteria = {:category_id_equals => @category_id}
     end
 
-    category_id = @search_criteria[:category_id_equals]
-
-    # Make sure we have a valid category_id
-    begin
-      category_id = Integer(category_id)
-      @category = Category.find(category_id)
-    rescue
-      category_id = Category.first.id
-    end
-
-    @category ||= Category.find(category_id)
-    @search_criteria[:category_id_equals] = category_id
-
-    @search = EventInstance.search(@search_criteria)
+    @search = EventInstance.search(search_criteria)
   end
 
   # GET /event_instances/1

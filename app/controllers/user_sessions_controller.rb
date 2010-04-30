@@ -5,16 +5,18 @@ class UserSessionsController < ApplicationController
   helper_method :current_user_session, :current_user
 
   def new
-    @user_session = UserSession.new
+    session[:user_session] = params[:user_session]
+    #redirect_to(:controller => 'user_sessions', :action => 'create')
   end
 
   def create
-    @user_session = UserSession.new(params[:user_session])
+    @user_session = UserSession.new(session[:user_session])
     if @user_session.save
-      flash[:notice] = "Account registered!"
+      flash[:notice] = "Login successful!"
       redirect_back_or_default account_url
     else
-      render :action => :new
+      flash[:notice] = "Login failed"
+      redirect_to(:controller => 'event_instances', :action => 'index')
     end
   end
 

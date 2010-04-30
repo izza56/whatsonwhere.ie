@@ -4,6 +4,6 @@ class AddEventIndex < ActiveRecord::Migration
   end
 
   def self.down
-    drop_index :event_instances, :id
+   # drop_index :event_instances, :id
   end
 end
