@@ -1,8 +1,5 @@
-<%
-category = Category.find(@category_id)
-%>
 <div class="heading">
-  <h3><%= category.name %></h3>
+  <h3><%= @category.name %></h3>
 </div>
 <div class="subContent">
 <% form_for @search do |f| %>
@@ -11,9 +8,9 @@ category = Category.find(@category_id)
   <%= f.text_field :notes_like, :class => "inputBox" %>
 </p>
 <p>
-  <%= f.hidden_field :category_id_equals, :value => @category_id %>
+  <%= f.hidden_field :category_id_equals, :value => @category.id %>
   <%= f.label :genre_id_equals, "Genre" %>
-  <%= f.collection_select :genre_id_equals, Genre.find_all_by_category_id(@category_id), :id, :name,
+  <%= f.collection_select :genre_id_equals, Genre.find_all_by_category_id(@category.id), :id, :name,
     {:include_blank => true, :class => "inputBox"} %>
 </p>
 <p>
@@ -26,7 +23,7 @@ category = Category.find(@category_id)
 </p>
   <%= f.submit "Search", :class => "go" %>
 <%end%>
-<h3>List of <%= category.name.pluralize.capitalize %></h3>
+<h3>List of <%= @category.name.pluralize.capitalize %></h3>
 
 <% first=true %>
 <% @search.each do |e| %>
@@ -38,6 +35,6 @@ category = Category.find(@category_id)
   <h2><%= link_to e.name, e %></h2>
   <p><%=h e.notes %></p>
 <% end %>
-
+</div>
 <div class="end">
 </div>
