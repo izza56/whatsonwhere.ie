@@ -30,6 +30,10 @@ class EventInstancesController < ApplicationController
       search_criteria = {:category_id_equals => @category_id}
     end
 
+    if search_criteria[:genre_id_equals] == "0"
+      search_criteria.delete(:genre_id_equals)
+    end
+
     @search = EventInstance.search(search_criteria)
   end
 

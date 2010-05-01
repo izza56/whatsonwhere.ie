@@ -27,5 +27,5 @@ form_tag :search_box, :method => "get" do -%>
       "<option value=0></option>" +
         options_from_collection_for_select(Genre.find_all_by_category_id(selected_category_id), :id, :name, selected_genre_id)) %>
   <% end %><br />
-  <%= submit_tag "Search" %>
+  <%= submit_tag "Search", { :class => "search" } %>
 <% end %>

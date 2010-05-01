@@ -7,7 +7,7 @@ category = Category.find(@category_id)
 <div class="subContent">
 <% form_for @search do |f| %>
 <p>
-  <%= f.label :notes_like, "Name" %> <br />
+  <%= f.label :notes_like, "Name" %>
   <%= f.text_field :notes_like, :class => "inputBox" %>
 </p>
 <p>
@@ -18,13 +18,13 @@ category = Category.find(@category_id)
 </p>
 <p>
   <%= f.label :start_gte, "Start Time Between" %>
-  <%= f.text_field :start_gte, {:size =>15, :class => "inputBox"} %> and <%= f.text_field :start_lte, {:size => 15, :class => "inputBox"}  %>
+  <%= f.text_field :start_gte, {:class => "start"} %> and <%= f.text_field :start_lte, {:class => "start"}  %>
 </p>
 <p>
   <%= f.label :age_limit_id_equals, "Age restriction"%>
   <%= f.collection_select :age_limit_id_equals, AgeLimit.all, :id, :name, {:include_blank => true, :class => "inputBox"} %>
 </p>
-  <%= f.submit "Search", :class => "go" %>
+  <%= f.submit "Search", :class => "search" %>
 <%end%>
 <h3>List of <%= category.name.pluralize.capitalize %></h3>
 
@@ -36,7 +36,7 @@ category = Category.find(@category_id)
     <div class="hr"><hr /></div>
   <% end %>
   <h2><%= link_to e.name, e %></h2>
-  <p><%=h e.notes %></p>
+  <span><%=h e.notes %></span>
 <% end %>
 </div>
 <div class="end">

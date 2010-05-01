@@ -1,6 +1,7 @@
   <h1>Login</h1>
-Form.serialize($('search_box'))
-  <% form_for @user_session, :url => user_session_path do |f| %>
+<%# remote_form_for :user_session, @user_session, :url => "/user_session/new", :html => { :method => :put, :class => "user_session" } do |f| %>
+
+<% remote_form_for :user_session, :url => { :controller => :user_session, :action => :new } do |f|%>
     <%= f.error_messages %>
     <%= f.label :login %><br />
     <%= f.text_field :login %><br />
@@ -11,31 +12,4 @@ Form.serialize($('search_box'))
     <%= f.check_box :remember_me %><%= f.label :remember_me %><br />
     <br />
     <%= f.submit "Login" %>
-  <% end %>
-   <%= flash[:notice] %>
-
-<% remote_form_for :user_session, @user_session, :url => "/user_session/new", :html => { :method => :put, :class => "user_session" } do |f| %>
-...
-<% end %>
-
-    form_tag :search_box, :method => "get" do -%>
-  <%= label_tag "search_box[category_id_equals]", "Category" %><br />
-  <%= select_tag("search_box[category_id_equals]",
-    "<option value=0></option>" +
-      options_from_collection_for_select(Category.all, :id, :name, selected_category_id),
-    {:prompt => true}) %><br />
-  <%  # Make some ajax to re-render the screen if the category is changed
-  concat observe_field("search_box_category_id_equals",
-    :url => { :controller => :search_box, :action => :view },
-    :update => "search_box",
-    :with => "Form.serialize($('search_box'))")
-  %>
-  <% # only show the Genre dropdown if the category is selected
-    if (selected_category_id != 0) %>
-    <%= label_tag "search_box[genre_id_equals]", "Genre" %><br />
-    <%= select_tag("search_box[genre_id_equals]",
-      "<option value=0></option>" +
-        options_from_collection_for_select(Genre.find_all_by_category_id(selected_category_id), :id, :name, selected_genre_id)) %>
-  <% end %><br />
-  <%= submit_tag "Search" %>
 <% end %>
