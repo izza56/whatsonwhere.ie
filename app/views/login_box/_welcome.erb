@@ -2,6 +2,7 @@
 <h3>Welcome <%= current_user.login %></h3>
 </div>
 <div class="loginContent">
-Your links will go here...
+Your links will go here...<br /><br />
+<%= link_to "Log out", :controller => :login_box, :action => :logout %>
 </div>
 <div class="loginEnd"></div>

@@ -1,12 +1,13 @@
-<li class="first"><a href="index.html">home</a></li>
+<ul class="main-menu">
+<li class="first"><%= link_to "home", :controller => :event_instances, :action => :index %></li>
 <%
 # Render all the categories as menus
-Categories.each do |c|
-  concat "<li"
-  if @category_id == c.id
-    concat " class=""active"""
-  end
-  concat ">" + c.name + "</li>"
+Category.find(:all).each do |c| %>
+  <%= content_tag :li,
+    link_to(c.name.downcase, :controller => :event_instances, :action => :search, :category_id => c.id),
+    :class => (@category_id == c.id) ? "active" : nil %>
+<%
 end
 %>
 <li><a href="contact.html">contact us</a></li>
+</ul>

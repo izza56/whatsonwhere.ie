@@ -13,4 +13,11 @@ class LoginBoxController < ApplicationController
       end
     end
   end
+
+  def logout
+    if !current_user_session.nil?
+      current_user_session.destroy
+    end
+    redirect_to :root
+  end
 end
