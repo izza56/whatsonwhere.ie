@@ -1,8 +1,5 @@
-<%
-if session[:current_user_id].nil?
-  @user_session = UserSession.new %>
-  <%= render :partial => "user_sessions/new" %><%
-else
-%> WELCOME! <%= current_user.name %> <%
-end
-%>
+<% if current_user.nil? %>
+  <%= render :partial => "login_box/login_form" %>
+<% else %>
+  <%= render :partial => "login_box/welcome" %>
+<% end %>

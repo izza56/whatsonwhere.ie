@@ -27,7 +27,8 @@ div.hr hr {
 	width:900px; 
 	text-align:left; 
 	margin:0 auto; 
-	background:url(../images/mainBack.png) center no-repeat;
+	background:url(../images/mainBack.png);
+	
 	}
 
 p{
@@ -282,11 +283,28 @@ label{
 	padding-left:20px;
 }
 
-.loginBox{
-	background:url(../images/backBox.png);
+.loginBoxHeader{
+	background:url(../images/loginHeader.png);
 	background-repeat:no-repeat;
 	width:198px;
-	height:233px;
+	height:32px;
+	padding-left:15px;
+}
+
+.loginContent{
+	background:url(../images/loginContent.png);
+	background-repeat:repeat-y;
+	background-position:center;
+	width:198px;
+	padding-top:10px;
+	padding-left:15px;
+}
+
+.loginEnd{
+	background:url(../images/loginEnd.png);
+	background-repeat:no-repeat;
+	width:198px;
+	height:9px;
 	padding-left:15px;
 }
 
@@ -474,3 +492,39 @@ textarea.styled {
 	color:#ec9b0c;
 }
 	
+.ajaxful-rating,
+.ajaxful-rating a:hover,
+.ajaxful-rating a:active,
+.ajaxful-rating a:focus,
+.ajaxful-rating .show-value{
+    background: url(/images/ajaxful_rating/star.png) left -1000px repeat-x;
+}
+.ajaxful-rating{
+    position: relative;
+    /*width: 125px; this is setted dynamically */
+    height: 25px;
+    overflow: hidden;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-position: left top;
+}
+.ajaxful-rating li{ display: inline; }
+.ajaxful-rating a,
+.ajaxful-rating span,
+.ajaxful-rating .show-value{
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-indent: -1000em;
+    height: 25px;
+    line-height: 25px;
+    outline: none;
+    overflow: hidden;
+    border: none;
+}
+.ajaxful-rating a:hover,
+.ajaxful-rating a:active,
+.ajaxful-rating a:focus{
+    background-position: left bottom;
+}

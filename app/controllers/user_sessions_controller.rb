@@ -6,6 +6,7 @@ class UserSessionsController < ApplicationController
 
   def new
     session[:user_session] = params[:user_session]
+    render :layout => false
     #redirect_to(:controller => 'user_sessions', :action => 'create')
   end
 
