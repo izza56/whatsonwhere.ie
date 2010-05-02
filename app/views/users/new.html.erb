@@ -1,10 +1,22 @@
-
-<div id="main">
-<h1>Register</h1>
-
-<% form_for @user, :url => account_path do |f| %>
-  <%= f.error_messages %>
-  <%= render :partial => "form", :object => f %>
-  <%= f.submit "Register" %>
-<% end %>
+<div class="heading">
+  <h3>Register</h3>
 </div>
+<div class="subContent">
+  <% form_for @user, :url => account_path do |f| %>
+    <%= f.error_messages %>
+    <%= f.label :login, "Enter your desired login name:" %><br />
+    <%= f.text_field :login, :class => "inputBox" %><br />
+    <br />
+    <%= f.label :email, "Enter a valid e-mail address:"%><br />
+    <%= f.text_field :email, :class => "inputBox"%><br />
+    <br />
+    <%= f.label :password, "Choose a password:" %><br />
+    <%= f.password_field :password, :class => "inputBox" %><br />
+    <br />
+    <%= f.label :password_confirmation, "Type it again:" %><br />
+    <%= f.password_field :password_confirmation, :class => "inputBox" %><br />
+    <br />
+    <%= f.submit "Register", :class => :register %>
+  <% end %>
+</div>
+<div class="end"></div>

@@ -1,12 +1,18 @@
-<h1>Change My Password</h1>
+<div class="heading">
+  <h3>Change my password</h3>
+</div>
+<div class="subContent">
 
-<% form_for @user, :url => password_reset_path, :method => :put do |f| %>
+<% form_for @user, :url => {:action => :update}, :method => :put do |f| %>
   <%= f.error_messages %>
   <%= f.label :password %><br />
-  <%= f.password_field :password %><br />
+  <%= f.password_field :password, :class => "inputBox" %><br />
   <br />
   <%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %><br />
+  <%= f.password_field :password_confirmation, :class => "inputBox" %><br />
   <br />
-  <%= f.submit "Update my password and log me in" %>
+  <%= f.submit "Update", :class => :register %>
 <% end %>
+
+</div>
+<div class="end"></div>

@@ -12,9 +12,11 @@
     <br />
     <%= f.check_box :remember_me %><%= f.label :remember_me %><br />
     <br />
+    <%= link_to "Not registered?", :controller => :users, :action => :new %>
+    <br /><br />
     <%= link_to "Forgotten password?", :controller => :password_resets, :action => :new %>
     <br />
-    <%= f.submit "Login", :class => "button" %>
+    <%= f.submit "Login", :class => "register" %>
 <% end %>
 </div>
 <div class="loginEnd"></div>

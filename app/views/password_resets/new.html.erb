@@ -1,15 +1,21 @@
-<h1>Forgot Password</h1>
+<div class="heading">
+  <h3>Retrieve password</h3>
+</div>
+<div class="subContent">
 
 <% if flash[:notice] %>
    <%= flash[:notice] %>
 <% end %>
 
-Fill out the form below and instructions to reset your password will be emailed to you:<br />
-<br />
+  <p>
+    Please enter the e-mail address you registered with and instructions to reset your password will be emailed to you:<br />
+  </p>
 
 <% form_tag password_resets_path do %>
   <label>Email:</label><br />
-  <%= text_field_tag "email" %><br />
+  <%= text_field_tag "email", nil, :class => "inputBox" %><br />
   <br />
-  <%= submit_tag "Reset my password" %>
+  <%= submit_tag "Reset", :class => :register %>
 <% end %>
+</div>
+<div class="end"></div>

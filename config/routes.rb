@@ -16,7 +16,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :event_instances, :member => {:rate => :post}
   map.resource :user_session
   map.root :controller => "event_instances", :action => "index"
-  map.resources :password_resets
+  map.password_resets '/password_resets/new', :controller => :password_resets, :action => :new
+  map.password_resets '/password_resets/edit', :controller => :password_resets, :action => :edit
+  map.application_message '/application/message', :controller => :application, :action => :message
   map.resource :account, :controller => "users"
   map.resources :users
   map.connect ':controller/:action/:id'
